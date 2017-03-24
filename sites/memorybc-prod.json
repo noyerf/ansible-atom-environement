@@ -1,0 +1,4 @@
+{
+    "es_hosts": "memorybc_server",
+    "es_index": "memorybc_prod"
+}

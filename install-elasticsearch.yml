@@ -1,0 +1,6 @@
+---
+hosts: "{{ es_customer_server }}"
+roles:
+  - role: "elasticsearch"
+    vars:
+      version: "1.7.5"
