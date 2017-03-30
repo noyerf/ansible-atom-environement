@@ -1,0 +1,23 @@
+---
+##            ANSIBLE-ATOM roles          ##
+#             overriding variables         #
+#                                          #
+# common to our standard AtoM install      #
+# site specifique values to be find        #
+# under ../sites/<site_name>.yml           #
+##                                        ##
+
+# atom code
+atom_repository_url: "https://github.com/artefactual/atom.git"
+atom_repository_version: "stable/2.3.x"
+
+# Default user for tools:purge
+atom_user_email: "demo@example.com"
+atom_user_username: "demoUser"
+atom_user_password: "demoUser"
+
+#
+# settings.yml
+#
+atom_default_culture: "fr"
+atom_default_timezone: "Europe/Zurich"

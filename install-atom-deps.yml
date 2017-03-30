@@ -1,3 +1,8 @@
 ---
 - roles:
-  - role: "atom"
+  - role: "percona"
+  - role: "percona-client"
+  - role: "elasticsearch"
+  - role: "gearman"
+  - role: "memcached"
+  - role: "nginx"  

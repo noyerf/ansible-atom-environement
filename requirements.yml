@@ -30,7 +30,7 @@
   name: "nginx"
   path: "roles/"
 
-- src: "https://github.com/artefactual-labs/ansible-atom"
+- src: "https://github.com/noyerf/ansible-atom"
   version: "master"
   name: "atom"
   path: "roles/"

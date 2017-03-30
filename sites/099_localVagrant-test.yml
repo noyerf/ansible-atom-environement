@@ -1,0 +1,96 @@
+---
+# site variables
+project_number: "099"
+project_name: "localVagrant"
+  # either 'prod' or 'test'
+instance_type: test
+
+mysql_root_password: "mysqlRootPASSWORD"
+mysql_atom_user: "atomtestuser"
+mysql_atom_password: "mysqlatomtestPASSWORD"
+
+##            ANSIBLE-ATOM role           ##
+#             overriding variables         #
+#                                          #
+# for the variables that are standart to   #
+# to all atom instances, look in           #
+# ../group_vars/all/atom.yml               #
+##                                        ##
+
+# Flush database 
+# Caution:  'yes' means your database will be wiped out
+#           like in an initial deployement
+atom_flush_data: no
+
+#
+# Main parameters
+#
+atom_path: /usr/share/nginx/atom-prod
+# nothing to do with our understanding of prod/test
+# here is meant either 'production' or 'development'
+## see sites variables at beginning of this file for this
+atom_environment_type: production
+
+#
+# Misc
+#
+
+atom_title: "AtoM Test instance"
+atom_description: "Access to Memory Test Instance"
+
+#
+# Worker
+#
+atom_worker_service_name: "atom-worker-test"
+
+#
+# app.yml
+#
+atom_app_read_only: false
+# atom_app_google_maps_api_key:
+# atom_app_google_analytics_api_key:
+
+
+#
+# config.php
+#
+atom_config_db_username: "atomtestuser"
+atom_config_db_password: "testmysqlPASSWORD"
+atom_config_db_name: "atomtest"
+
+#
+# search.yml
+#
+atom_es_index: "atomtest"
+
+#
+# php5-fpm pool
+#
+atom_pool_listen: "/var/run/php-fpm.atom-test.sock"
+atom_pool_pm_max_children: "20"
+atom_pool_pm_start_servers: "10"
+atom_pool_pm_min_spare_servers: "10"
+atom_pool_pm_max_spare_servers: "10"
+atom_pool_pm_max_requests: "200"
+atom_pool_php_memory_limit: "512M"
+atom_pool_php_max_execution_time: "120"
+atom_pool_php_post_max_size: "72M"
+atom_pool_php_upload_max_filesize: "64M"
+atom_pool_php_envs:
+  ATOM_DEBUG_IP: "127.0.0.1"
+  ATOM_READ_ONLY: "off"
+
+##           Elasticsearch role           ##
+#           overriding variables           #             #
+##                                        ##
+
+elasticsearch_cluster_name: "elasticsearch_{{ project_number }}{{ project_name }}"
+
+##          PERCONA (MySQL) role          ##
+#           overriding variables           #
+##                                        ##
+
+# Basic settings
+# mysql_root_password: -> defined at top of this file 
+mysql_databases: [atomtest]
+mysql_users: [atomtestuser]
